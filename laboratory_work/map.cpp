@@ -34,8 +34,9 @@ void Map:: add_arena(std:: string loc_name, int x, int y) {
 }
 
 void Map:: screen() {
-    for (size_t j = 0; j < 20; ++j) {
-        for (size_t i = 0; i < 20; ++i) {
+    for (int i = 0; i < 30; ++i) { std:: cout << std:: endl; }
+    for (int j = 0; j < 20; ++j) {
+        for (int i = 0; i < 20; ++i) {
             if (map[j][i] != ' ') {
                 std:: cout << map[j][i];
             } else {
@@ -47,8 +48,8 @@ void Map:: screen() {
 }
 
 void Map:: clear_map() {
-    for (size_t j = 0; j < 20; ++j) {
-        for (size_t i = 0; i < 20; ++i) {
+    for (int j = 0; j < 20; ++j) {
+        for (int i = 0; i < 20; ++i) {
             map[j][i] = ' ';
         }
     }
@@ -101,15 +102,15 @@ void Map:: chest_do() {
 
 void Map:: building_do() {
     std:: string move;
-    Object * buildinging = search_obj('b');
-    if (buildinging != 0) {
+    Object * building = search_obj('b');
+    if (building != 0) {
         std:: cout << "You entered the building. (say/trade)\n";
-        buildinging->scan_obj();
+        building->scan_obj();
         std:: cin >> move;
         if (move == "say") {
             std:: cout << "With whom?\n";
             std:: cin >> move;
-            NPC * npc = buildinging->search_npc(move);
+            NPC * npc = building->search_npc(move);
             if (npc != 0) {
                 std:: cout << npc->get_phrase();
             } else {
@@ -118,7 +119,7 @@ void Map:: building_do() {
         } else if (move == "trade") {
             std:: cout << "With whom?\n";
             std:: cin >> move;
-            NPC_trader * trader = buildinging->search_trader(move);
+            NPC_trader * trader = building->search_trader(move);
             if (trader != 0) {
                 player->trade_whith(trader);
             } else {

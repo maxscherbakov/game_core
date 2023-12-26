@@ -10,9 +10,9 @@ enum Move {
 
 void create_object(Map * map) {
     map->clear_map();
-    map->add_arena("арена", 4, 4);
-    map->add_chest("сундук", 1, 3);
-    map->add_building("таверна", 5, 1);
+    map->add_arena("Arena1", 4, 4);
+    map->add_chest("Chest1", 1, 3);
+    map->add_building("Tavern1", 5, 1);
     map->object_set("helmet", "", "", 0, 1, 3);
     map->object_set("amulet", "", "", 0, 1, 3);
     map->object_set("Trader1", "Bottle beer = 10 cent", "Bottle beer", 10, 5, 1);
